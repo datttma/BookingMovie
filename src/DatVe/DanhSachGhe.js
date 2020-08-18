@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 class DanhSachGhe extends Component {
   renderHang = () => {
     let Hang = this.props.data;
+    console.log("hang",Hang);
     return Hang.map((item, index) => {
-      return <p>{item.hang}</p>;
+      return <p key={index}>{item.hang}</p>;
     });
   };
   renderGhe = () => {
@@ -12,8 +13,8 @@ class DanhSachGhe extends Component {
     return ghe.map((item, index) => {
       return item.danhSachGhe.map((ghe, id) => {
         return (
-          <div className="col-1">
-            <div className="ghe text-center">{ghe.soGhe}</div>
+          <div className="col-1 mt-2 "key={id}>
+            <div className="ghe text-center" onClick={()=>{this.props.dispatch({type:"BOOKING",ghe})}}>{ghe.soGhe}</div>
           </div>
         );
       });

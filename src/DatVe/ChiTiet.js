@@ -1,6 +1,15 @@
 import React, { Component } from "react";
-
-export default class ChiTiet extends Component {
+import {connect} from 'react-redux';
+ class ChiTiet extends Component {
+   renderTable=()=>{
+    return this.props.gheDangchon.map((item,index)=>{
+        return  <tr>
+        <th>{item.soGhe}</th>
+        <th>{item.gia}</th>
+        <th>X</th>
+      </tr>
+    });
+   }
   render() {
     return (
       <div className="col-4">
@@ -26,11 +35,7 @@ export default class ChiTiet extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">a1</td>
-              <td>222</td>
-              <td>X</td>
-            </tr>
+            {this.renderTable()}
             <tr>
               <td>Tổng</td>
               <td>12</td>
@@ -42,3 +47,7 @@ export default class ChiTiet extends Component {
     );
   }
 }
+const mapStateToProps = state =>({
+  gheDangchon : state.datVeReducer.gheDangchon,
+});
+export default connect(mapStateToProps)(ChiTiet);

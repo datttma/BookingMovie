@@ -188,12 +188,18 @@ const initialState = {
       ],
     },
   ],
+  gheDangchon:[
+    
+]
 };
 
 export default (state = initialState, actions) => {
   switch (actions.type) {
-    case "da":
-      return { ...state };
+    case "BOOKING":{
+      let gheArr = [...state.gheDangchon,{...actions.ghe}];
+console.log(gheArr);
+      return { ...state, gheDangchon: gheArr};
+    }
     default:
       return state;
   }
