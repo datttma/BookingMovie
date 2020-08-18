@@ -10,6 +10,13 @@ import {connect} from 'react-redux';
       </tr>
     });
    }
+   tinhtien=(ghedat)=>{
+    let tien =0;
+    ghedat.map((item)=>{
+      tien+=item.gia;
+    });
+    return tien;
+   }
   render() {
     return (
       <div className="col-4">
@@ -38,7 +45,7 @@ import {connect} from 'react-redux';
             {this.renderTable()}
             <tr>
               <td>Tổng</td>
-              <td>12</td>
+    <td>{this.tinhtien(this.props.gheDangchon)}</td>
               <td></td>
             </tr>
           </tbody>
