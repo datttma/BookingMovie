@@ -34,7 +34,21 @@ class Burger extends Component {
         return Object.entries(menu).map(([props, value], index) => {
             return <tr key={index}>
                 <td>{props}</td>
-                <td><button className="btn btn-success" onClick={()=>{}}>+</button>{burger[props]} <button className="btn btn-danger">-</button> </td>
+                <td>
+                    <button className="btn btn-success" onClick={()=>{ this.props.dispatch({
+                        type:"TANG_GIAM",
+                        propsBurger : props,
+                        amount :1
+
+                })}}>+</button>
+                {burger[props]} 
+                <button className="btn btn-danger" onClick={()=>{ this.props.dispatch({
+                        type:"TANG_GIAM",
+                        propsBurger : props,
+                        amount :-1
+
+                })}}>-</button>
+                 </td>
                 <td>{value}</td>
             </tr>
         })
@@ -62,10 +76,10 @@ class Burger extends Component {
                             <tbody>
                                 {this.renderTable()}
                             </tbody>
-                            
+
                                 <th>Thành tiền</th>
                                 <th>{this.props.total}</th>
-                            
+
                         </table>
                     </div>
                 </div>
