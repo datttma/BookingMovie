@@ -1,9 +1,9 @@
 .ghe {
   border: 3px solid orange;
-  width: 35px;
+  width: 20px;
   height: 35px;
-  font-size: 12px;
-  margin-left: 2%;
+  /* font-size: 12px; */
+  /* margin-left: ; */
   margin-bottom: 1%;
   border-radius: 5px;
   cursor: pointer;
@@ -15,15 +15,17 @@
   height: 35px;
   background: none;
   border: none;
-  margin-left: 2%;
+  /* margin-left: 2%; */
   margin-bottom: 1%;
   font-size: 30px;
   color: yellow;
+  cursor: no-drop !important;
 }
 
 .firstChar {
   color: yellow;
-  font-size: 35px;
+  font-size: 25px;
+  font-weight: bold;
   /* margin-right: 15px; */
 }
 
@@ -43,11 +45,8 @@
   background: orange;
   color: #000;
   cursor: no-drop !important;
-  border-radius: 5px;
-  width: 45px;
-  height: 35px;
-  margin-left: 2%;
   margin-bottom: 1%;
+  pointer-events: none;
 }
 
 .gheDangChon {
@@ -58,6 +57,6 @@
   border-radius: 5px;
   width: 45px;
   height: 35px;
-  margin-left: 2%;
+  /* margin-left: 2%; */
   margin-bottom: 1%;
 }

@@ -1,22 +1,24 @@
 import React, { Component } from "react";
-import {connect} from 'react-redux';
- class ChiTiet extends Component {
-   renderTable=()=>{
-    return this.props.gheDangchon.map((item,index)=>{
-        return  <tr>
-        <th>{item.soGhe}</th>
-        <th>{item.gia}</th>
-        <th>X</th>
-      </tr>
+import { connect } from "react-redux";
+class ChiTiet extends Component {
+  renderTable = () => {
+    return this.props.gheDangchon.map((item, index) => {
+      return (
+        <tr key={index}>
+          <th>{item.soGhe}</th>
+          <th>{item.gia}</th>
+          <th>X</th>
+        </tr>
+      );
     });
-   }
-   tinhtien=(ghedat)=>{
-    let tien =0;
-    ghedat.map((item)=>{
-      tien+=item.gia;
+  };
+  tinhtien = (ghedat) => {
+    let tien = 0;
+    ghedat.map((item) => {
+      tien += item.gia;
     });
     return tien;
-   }
+  };
   render() {
     return (
       <div className="col-4">
@@ -45,7 +47,7 @@ import {connect} from 'react-redux';
             {this.renderTable()}
             <tr>
               <td>Tổng</td>
-    <td>{this.tinhtien(this.props.gheDangchon)}</td>
+              <td>{this.tinhtien(this.props.gheDangchon)}</td>
               <td></td>
             </tr>
           </tbody>
@@ -54,7 +56,7 @@ import {connect} from 'react-redux';
     );
   }
 }
-const mapStateToProps = state =>({
-  gheDangchon : state.datVeReducer.gheDangchon,
+const mapStateToProps = (state) => ({
+  gheDangchon: state.datVeReducer.gheDangchon,
 });
 export default connect(mapStateToProps)(ChiTiet);
