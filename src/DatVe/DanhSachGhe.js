@@ -4,7 +4,7 @@ class DanhSachGhe extends Component {
   renderHetLuon = () => {
     let data = this.props.data;
     let gheDangChon = this.props.gheDangChon;
-    console.log(data);
+    // console.log(data);
     return data.map((item, index) => {
       return (
         <div className="row" key={index}>
@@ -20,9 +20,11 @@ class DanhSachGhe extends Component {
                 gheDangChon.map((dangChon, index) => {
                   // console.log(dangChon.soGhe);
                   if (dangChon.soGhe === ghe.soGhe) {
-                    classGhee === "gheDangChon"
-                      ? (classGheee = " ")
-                      : (classGhe += " gheDangChon");
+                    if (classGheee === "gheDangChon") {
+                      classGheee = " ";
+                    } else {
+                      classGheee = "gheDangChon";
+                    }
                   }
                 });
                 return (

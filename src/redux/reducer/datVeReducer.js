@@ -194,9 +194,18 @@ const initialState = {
 export default (state = initialState, actions) => {
   switch (actions.type) {
     case "BOOKING": {
-      let gheArr = [...state.gheDangchon, { ...actions.ghe }];
+      // let gheArr = [...state.gheDangchon];
+      let index = state.gheDangchon.findIndex(
+        (ele) => ele.soGhe === actions.ghe.soGhe
+      );
+      console.log(index);
+      if (index === -1) {
+        let gheArr = [...state.gheDangchon, { ...actions.ghe }];
+        return { ...state, gheDangchon: gheArr };
+      } else {
+        return { ...state };
+      }
       // console.log(gheArr);
-      return { ...state, gheDangchon: gheArr };
     }
     default:
       return state;
