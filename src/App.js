@@ -7,8 +7,8 @@ import Burger from "./Burger/Burger";
 function App() {
   return (
     <div>
-      {/* <DatVe /> */}
-      <Burger/>
+      <DatVe />
+      {/* <Burger/> */}
     </div>
   );
 }

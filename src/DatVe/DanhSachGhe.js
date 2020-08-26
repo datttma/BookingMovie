@@ -20,6 +20,22 @@ class DanhSachGhe extends Component {
       });
     });
   };
+  renderHetLuon=()=>{
+    let data = this.props.data;
+    // for(let props in data){
+    //   // console.log(data[props]);
+    //   // console.log(Object.entries(data[props]));
+    //   Object.entries(data[props]).map((item,index)=>{
+    //       console.log(item[index]);
+    //   })
+  // }
+  data.map((item,index)=>{
+    // console.log(item);
+    for(let props in item){
+      // console.log(item[props]);
+    }
+  })
+  }
   render() {
     return (
       <div className="col-8">
@@ -27,13 +43,13 @@ class DanhSachGhe extends Component {
         <div className="screen"></div>
         <div className="mt-2">
           <div className="row">
-            {/* Hàng A B C */}
-            <div className="col-1 firstChar"> {this.renderHang()}</div>
-
-            {/* Số ghế */}
-            <div className="col-11">
-              <div className="row">{this.renderGhe()}</div>
-            </div>
+            {this.renderHetLuon()}
+                <div className="col-1">A</div>
+                <div className ="col-11">
+                  <div className="row">
+                    <div className="col-1">1</div>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
